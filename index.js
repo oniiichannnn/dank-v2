@@ -3,8 +3,7 @@ const client = new Discord.Client({ws:{intents: Discord.Intents.ALL},fetchAllMem
 const ms = require('ms')
 const { API, } = require('nhentai-api');
 const api = new API()
-
-const invite = 'https://discord.gg/aakXKu5CAv'
+const express = require("express")
 
 client.on('ready',async () => {
     console.log('Logged In')
@@ -224,3 +223,8 @@ client.on("message",async message => {
 })
 
 client.login(process.env.TOKEN)
+
+const app = express()
+
+app.get("/", ( req,res ) => { res.send("lol i got ur ip...just kidding") })
+app.listen(4000, () => { console.log("keep alived") })
